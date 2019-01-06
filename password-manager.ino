@@ -1,14 +1,20 @@
 #include "DigiKeyboard.h"
 
+bool unlocked = false;Password2Password2
+int password[] = {1,0,2,0,2};
+int passwordlength = 5;
+int lockstage = 0;
+
 void setup() {
   pinMode(0, INPUT);
   pinMode(1, INPUT);
   pinMode(2, INPUT);
+  pinMode(5, INPUT);
 }
 
 void loop() {
 
-
+if(unlocked) {
   if(digitalRead(0)==HIGH){
     
     if(digitalRead(1)==HIGH) {
@@ -29,10 +35,20 @@ void loop() {
         //0
             DigiKeyboard.print("Password0");
     }
-    DigiKeyboard.delay(2000);
+    DigiKeyboard.delay(1000);
   }
-
+} else {
+  //password codes
+  if (digitalRead(password[lockstage])==HIGH){
+    delay(250);
+    lockstage++;
+    if(lockstage==passwordlength){
+      unlocked = true;
+    }
+  } else if(digitalRead(0)==HIGH || digitalRead(1)==HIGH || digitalRead(2)==HIGH) {
+    lockstage=0;
+  }
+}
   DigiKeyboard.delay(100);
 
 }
-
