@@ -1,6 +1,6 @@
 #include "DigiKeyboard.h"
 
-bool unlocked = false;Password2Password2
+bool unlocked = false;
 int password[] = {1,0,2,0,2};
 int passwordlength = 5;
 int lockstage = 0;
@@ -42,12 +42,8 @@ if(unlocked) {
   if (digitalRead(password[lockstage])==HIGH){
     delay(250);
     lockstage++;
-    if(lockstage==passwordlength){
-      unlocked = true;
-    }
-  } else if(digitalRead(0)==HIGH || digitalRead(1)==HIGH || digitalRead(2)==HIGH) {
-    lockstage=0;
-  }
+    if(lockstage==passwordlength) unlocked = true;
+  } else if(digitalRead(0)==HIGH || digitalRead(1)==HIGH || digitalRead(2)==HIGH) lockstage=0;
 }
   DigiKeyboard.delay(100);
 
