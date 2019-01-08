@@ -1,5 +1,8 @@
 # $2 Hardware Password Manager
 ## A hardware password manager. Works with computers, smartphones and everything that accepts USB-keyboard input.
+
+Yellow button scrolls through passwords. Green button types the password.
+
 ### Parts
 * Digispark 16MHz Clone
 * 2pcs Momentary switch
