@@ -56,6 +56,6 @@ void loop() {
       lockstage=0;
     }
   }
-  DigiKeyboard.delay(100);
+    DigiKeyboard.delay(100);
 
 }
